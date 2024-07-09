@@ -158,7 +158,7 @@ label {
 .hero-button {
   background-color: #afd89d !important;
   border-radius: 0.9rem !important;
-  font-size: 1.25rem !important; /* 20px converted to rem */
+  font-size: 1.25rem !important; 
   color: #333333;
   padding: 1.5rem 3rem !important;
   border: #afd89d !important;
@@ -201,7 +201,7 @@ label {
 
 .ant-card-cover img {
   width: 100%;
-  height: 15.9375rem; /* 255px */
+  height: 15.9375rem;
 }
 
 .product-name {
@@ -227,7 +227,7 @@ label {
 
 .add-to-cart-button {
   width: 100%;
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.75rem;  
   background-color: #afd89d;
   border: #8dbf8d !important;
   border: none;
@@ -242,7 +242,7 @@ label {
 }
 
 .leather-row {
-  margin-bottom: 3.75rem !important; /* 60px */
+  margin-bottom: 3.75rem !important;
 }
 
 .back-container {
@@ -900,7 +900,7 @@ h1.title-total {
   }
 
   .leather-row {
-    margin-bottom: 3rem !important; /* 60px */
+    margin-bottom: 3rem !important; 
   }
 
   .back-container {
@@ -1202,7 +1202,7 @@ h1.title-total {
   }
 
   .leather-card {
-    margin-bottom: 2.5rem; /* 60px */
+    margin-bottom: 2.5rem; 
   }
 
   .leather-collection-container {
@@ -1283,7 +1283,7 @@ h1.title-total {
   }
 
   .checkout-heading {
-    /* padding: 0rem 2.5rem !important; */
+    padding: 0rem 2.5rem !important;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
   }
@@ -1730,25 +1730,25 @@ h1.title-total {
   }
 
   .ant-card-cover img {
-    height: 8rem !important; /* 164px */
+    height: 8rem !important; 
   }
 
   .product-name {
-    font-size: 0.875rem; /* 14px */
+    font-size: 0.875rem; 
   }
 
   .product-description {
-    margin-bottom: 0.125rem; /* 2px */
+    margin-bottom: 0.125rem; 
     margin-top: 8px !important;
   }
 
   .product-price {
-    font-size: 0.875rem; /* 14px */
-    margin-bottom: 0.625rem; /* 10px */
+    font-size: 0.875rem;
+    margin-bottom: 0.625rem; 
   }
 
   .leather-row {
-    margin-bottom: 1.25rem; /* 20px */
+    margin-bottom: 1.25rem;
   }
 
   .leather-row .ant-col {
@@ -1756,7 +1756,7 @@ h1.title-total {
   }
 
   .add-to-cart-button {
-    font-size: 0.75rem; /* 12px */
+    font-size: 0.75rem; 
   }
 
   .custom-card .ant-card-body {
@@ -2016,7 +2016,7 @@ h1.title-total {
   }
 
   .ant-card-cover img {
-    height: 8.25rem !important; /* 164px */
+    height: 8.25rem !important; 
   }
 
   .leather-row .ant-card .ant-card-body {
@@ -2024,18 +2024,18 @@ h1.title-total {
   }
 
   .product-name {
-    font-size: 0.65rem !important; /* 14px */
+    font-size: 0.65rem !important;
   }
 
   .product-description {
-    margin-bottom: 0.125rem; /* 2px */
+    margin-bottom: 0.125rem;
     margin-top: 10px !important;
-    font-size: 0.65rem !important; /* 14px */
+    font-size: 0.65rem !important; 
   }
 
   .product-price {
-    font-size: 0.8rem; /* 14px */
-    margin-bottom: 0.625rem; /* 10px */
+    font-size: 0.8rem;
+    margin-bottom: 0.625rem;
   }
 
   .leather-row {
@@ -2043,7 +2043,7 @@ h1.title-total {
   }
 
   .add-to-cart-button {
-    font-size: 0.75rem; /* 12px */
+    font-size: 0.75rem;
   }
 
   .custom-card .ant-card-body {

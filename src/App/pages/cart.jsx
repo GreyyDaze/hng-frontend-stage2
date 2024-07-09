@@ -42,25 +42,20 @@ const Cart = () => {
     setRandomProducts(shuffled.slice(0, 4));
   }, []);
 
-  // Compute total item count
   const totalItemCount = cartItems.reduce((acc, item) => acc + item.count, 0);
 
-  // Function to handle incrementing item quantity
   const handleIncrement = (productId) => {
     incrementItem(productId);
   };
 
-  // Function to handle decrementing item quantity
   const handleDecrement = (productId) => {
     decrementItem(productId);
   };
 
-  // Function to handle removing item from cart
   const handleRemove = (productId) => {
     removeFromCart(productId);
   };
 
-  // Function to handle checkout
   const handleCheckout = () => {
    
     if (totalPrice == 0) {

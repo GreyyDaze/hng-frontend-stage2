@@ -11,7 +11,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { cartItems } = useCart();
 
-  // Compute cartItemCount
   const cartItemCount = cartItems.reduce((acc, item) => acc + item.count, 0);
 
   return (

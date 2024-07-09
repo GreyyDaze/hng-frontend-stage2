@@ -8,14 +8,12 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  // Load cart items from localStorage on component mount
   useEffect(() => {
     const storedCartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
     setCartItems(storedCartItems);
     updateTotalCountsAndPrice(storedCartItems);
   }, []);
 
-  // Update total item count and price
   const updateTotalCountsAndPrice = (items) => {
     let totalPrice = 0;
 
@@ -26,7 +24,6 @@ export const CartProvider = ({ children }) => {
     setTotalPrice(totalPrice);
 
     console.log(totalPrice);
-    // Update localStorage with current cart state
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
   };
@@ -38,7 +35,7 @@ export const CartProvider = ({ children }) => {
       const updatedCartItems = [...cartItems];
       updatedCartItems[itemIndex].count++;
       setCartItems(updatedCartItems);
-      updateTotalCountsAndPrice(updatedCartItems); // Pass updatedCartItems here
+      updateTotalCountsAndPrice(updatedCartItems);
     } else {
       const newItem = {
         id: product.id,
@@ -49,14 +46,14 @@ export const CartProvider = ({ children }) => {
         count: 1,
       };
       setCartItems([...cartItems, newItem]);
-      updateTotalCountsAndPrice([...cartItems, newItem]); // Pass updated cartItems after adding newItem
+      updateTotalCountsAndPrice([...cartItems, newItem]); 
     }
   };
 
   const removeFromCart = (productId) => {
     const updatedCartItems = cartItems.filter((item) => item.id !== productId);
     setCartItems(updatedCartItems);
-    updateTotalCountsAndPrice(updatedCartItems); // Pass updatedCartItems here
+    updateTotalCountsAndPrice(updatedCartItems); 
   };
 
   const incrementItem = (productId) => {
@@ -68,7 +65,7 @@ export const CartProvider = ({ children }) => {
     if (itemIndex !== -1) {
       updatedCartItems[itemIndex].count++;
       setCartItems(updatedCartItems);
-      updateTotalCountsAndPrice(updatedCartItems); // Pass updatedCartItems here
+      updateTotalCountsAndPrice(updatedCartItems);
     }
   };
 
@@ -81,7 +78,7 @@ export const CartProvider = ({ children }) => {
     if (itemIndex !== -1 && updatedCartItems[itemIndex].count > 1) {
       updatedCartItems[itemIndex].count--;
       setCartItems(updatedCartItems);
-      updateTotalCountsAndPrice(updatedCartItems); // Pass updatedCartItems here
+      updateTotalCountsAndPrice(updatedCartItems); 
     }
   };
 
