@@ -7,15 +7,14 @@ const { Text, Title } = Typography;
 import { leatherBags } from "../../utils/data.js";
 import LeatherBagsCollection from "./components/leatherBagsCollection.jsx";
 import TimbuFooter from "../common/timbuFooter.jsx";
+import Image1 from "@images/images/hero.jpg";
+import Image2 from "@images/images/hero-1.jpg";
+import Image3 from "@images/images/hero-2.jpg";
+import Image4 from "@images/images/hero-3.jpg";
+import Image5 from "@images/images/hero-4.jpg";
 
 const ProductListing = () => {
-  const images = [
-    "@images/images/hero.jpg",
-    "@images/images/hero-1.jpg",
-    "@images/images/hero-2.jpg",
-    "@images/images/hero-3.jpg",
-    "@images/images/hero-4.jpg",
-  ];
+  const images = [Image1, Image2, Image3, Image4, Image5];
 
   return (
     <div>
