@@ -53,7 +53,7 @@ const Navbar = () => {
                 size="small"
                 style={{
                   backgroundColor: "#FFD700",
-                  color: "#ffffff",
+                  color: "#333333",
                   fontSize: "10px",
                 }}
                 offset={[-4, 3]}

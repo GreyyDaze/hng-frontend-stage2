@@ -94,7 +94,7 @@ const Cart = () => {
                         </Text>
                         <Text className="item-desc">{item.description}</Text>
                         <Text className="item-price">
-                          ${item.price.toFixed(2)} USD
+                          ${item.price.toFixed(2)} 
                         </Text>
                       </div>
                     </div>
