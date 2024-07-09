@@ -10,11 +10,11 @@ import TimbuFooter from "../common/timbuFooter.jsx";
 
 const ProductListing = () => {
   const images = [
-    "./src/assets/images/hero.jpg",
-    "./src/assets/images/hero-1.jpg",
-    "./src/assets/images/hero-2.jpg",
-    "./src/assets/images/hero-3.jpg",
-    "./src/assets/images/hero-4.jpg",
+    "@images/images/hero.jpg",
+    "@images/images/hero-1.jpg",
+    "@images/images/hero-2.jpg",
+    "@images/images/hero-3.jpg",
+    "@images/images/hero-4.jpg",
   ];
 
   return (

@@ -8,6 +8,7 @@ import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import { leatherBags } from "../../utils/data.js";
 
 import Image1 from "@images/images/collection-image-1.png"; 
+import Delete from "@images/icons/delete.png"; 
 const { Text, Title } = Typography;
 
 const Cart = () => {
@@ -53,7 +54,7 @@ const Cart = () => {
                       type="text"
                       icon={
                         <img
-                          src="./src/assets/icons/delete.png"
+                          src={Delete}
                           alt="icon"
                           className="delete-btn"
                         />
