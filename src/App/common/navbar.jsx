@@ -51,18 +51,18 @@ const Navbar = () => {
             >
               <Badge
                 count={cartItemCount}
-                size="large"
+                size="small"
                 style={{
                   backgroundColor: "#FFD700",
                   color: "#ffffff",
-                  fontSize: "12px",
+                  fontSize: "10px",
                 }}
-                offset={[-5, 5]}
+                offset={[-4, 3]}
               >
                 <img src={Cart} alt="Cart Icon" className="navbar-icon" />
               </Badge>
             </span>
-            <h6 className="navbar-text">Cart</h6>
+            <h6 className="navbar-text">Shop</h6>
           </div>
         </Col>
       </Row>

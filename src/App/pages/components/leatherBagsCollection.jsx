@@ -9,9 +9,7 @@ const LeatherBagsCollection = ({ products }) => {
 
   const handleAddToCart = (product) => {
     addToCart(product);
-
   };
-  
 
   return (
     <div className="leather-collection-container">
@@ -23,15 +21,25 @@ const LeatherBagsCollection = ({ products }) => {
               cover={<img alt={product.name} src={product.imageUrl} />}
               className="custom-card"
             >
-              <Text className="product-name">{product.name}</Text>
-              <Text className="product-description">{product.description}</Text>
-              <Text className="product-price">${product.price.toFixed(2)}</Text>
-              <Button
-                className="add-to-cart-button"
-                onClick={() => handleAddToCart(product)}
-              >
-                Add to Cart
-              </Button>
+              <div className="card-content">
+                <div className="product-info">
+                  <Text className="product-name">{product.name}</Text>
+                  <Text className="product-description">
+                    {product.description}
+                  </Text>
+                  <Text className="product-price">
+                    ${product.price.toFixed(2)}
+                  </Text>
+                </div>
+                <div className="product-action">
+                  <Button
+                    className="add-to-cart-button"
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
+              </div>
             </Card>
           </Col>
         ))}
