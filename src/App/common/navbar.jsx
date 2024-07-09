@@ -1,6 +1,10 @@
 import React from "react";
 import { Row, Col, Badge } from "antd";
 import { useNavigate } from "react-router-dom";
+import Menu from "@images/icons/menu.png";
+import Search from "@images/icons/search.png";
+import Profile from "@images/icons/profile.png";
+import Cart from "@images/icons/cart.png";
 
 const Navbar = ({ cartItemCount = 1 }) => {
   const navigate = useNavigate();
@@ -17,7 +21,7 @@ const Navbar = ({ cartItemCount = 1 }) => {
         >
           <div className="d-flex align-items-center">
             <img
-              src="./src/assets/icons/menu.png"
+              src={Menu}
               alt="Menu Icon"
               className="navbar-icon"
             />
@@ -25,7 +29,7 @@ const Navbar = ({ cartItemCount = 1 }) => {
           </div>
           <div className="d-flex align-items-center">
             <img
-              src="./src/assets/icons/search.png"
+              src={Search}
               alt="Search Icon"
               className="navbar-icon"
             />
@@ -41,7 +45,7 @@ const Navbar = ({ cartItemCount = 1 }) => {
         >
           <div className="d-flex align-items-center">
             <img
-              src="./src/assets/icons/profile.png"
+              src={Profile}
               alt="Account Icon"
               className="navbar-icon"
             />
@@ -63,7 +67,7 @@ const Navbar = ({ cartItemCount = 1 }) => {
                 offset={[-5, 5]}
               >
                 <img
-                  src="./src/assets/icons/cart.png"
+                  src={Cart}
                   alt="Cart Icon"
                   className="navbar-icon"
                 />

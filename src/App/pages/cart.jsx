@@ -7,6 +7,7 @@ import { Row, Col, Card, Button, Input, Typography, Divider } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import { leatherBags } from "../../utils/data.js";
 
+import Image1 from "@images/images/collection-image-1.png"; 
 const { Text, Title } = Typography;
 
 const Cart = () => {
@@ -33,7 +34,7 @@ const Cart = () => {
               <div className="cart-item">
                 <div className="d-flex">
                   <img
-                    src="./src/assets/images/collection-image-1.png"
+                    src={Image1}
                     alt="Dolce & Gabbana Bag"
                     className="item-image"
                   />
