@@ -56,11 +56,13 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-    if (totalPrice == 0) {
-      notification.warn({
+    if (totalPrice === 0) {
+      notification.open({
         message: "Cannot proceed to checkout",
         description: "Add items to your cart to proceed to checkout.",
+        type: "warning", // This sets the notification type to warning
       });
+      console.log("Cannot proceed to checkout");
     } else {
       navigate("/check-out");
     }
@@ -164,7 +166,7 @@ const Cart = () => {
               block
               className="checkout-btn"
               onClick={handleCheckout}
-              disabled={totalPrice === 0}
+              // disabled={totalPrice === 0}
             >
               CHECKOUT ($
               {cartItems
