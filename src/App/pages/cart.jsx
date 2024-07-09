@@ -14,7 +14,6 @@ import {
   notification,
 } from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
-import Image1 from "@images/images/collection-image-1.png";
 import Delete from "@images/icons/delete.png";
 import { useNavigate } from "react-router-dom";
 import { leatherBags } from "../../utils/data";
@@ -57,7 +56,6 @@ const Cart = () => {
   };
 
   const handleCheckout = () => {
-   
     if (totalPrice == 0) {
       notification.warn({
         message: "Cannot proceed to checkout",
