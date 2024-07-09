@@ -2,22 +2,76 @@ import React, { useEffect, useState } from "react";
 import CompanyLogo from "../common/companyLogo";
 import Navbar from "../common/navbar";
 import SalesCountdown from "../common/salesCountdown";
-import TimbuFooter from "../common/timbuFooter.jsx";
-import { Row, Col, Card, Button, Input, Typography, Divider } from "antd";
+import TimbuFooter from "../common/timbuFooter";
+import {
+  Row,
+  Col,
+  Card,
+  Button,
+  Input,
+  Typography,
+  Divider,
+  notification,
+} from "antd";
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
-import { leatherBags } from "../../utils/data.js";
-
-import Image1 from "@images/images/collection-image-1.png"; 
-import Delete from "@images/icons/delete.png"; 
+import Image1 from "@images/images/collection-image-1.png";
+import Delete from "@images/icons/delete.png";
+import { useNavigate } from "react-router-dom";
+import { leatherBags } from "../../utils/data";
+import { useCart } from "../../context/CartContext.jsx";
 const { Text, Title } = Typography;
 
 const Cart = () => {
+  const navigate = useNavigate();
+  const {
+    cartItems,
+    removeFromCart,
+    incrementItem,
+    decrementItem,
+    addToCart,
+    totalPrice,
+  } = useCart();
   const [randomProducts, setRandomProducts] = useState([]);
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+  };
 
   useEffect(() => {
     const shuffled = leatherBags.sort(() => 0.5 - Math.random());
     setRandomProducts(shuffled.slice(0, 4));
   }, []);
+
+  // Compute total item count
+  const totalItemCount = cartItems.reduce((acc, item) => acc + item.count, 0);
+
+  // Function to handle incrementing item quantity
+  const handleIncrement = (productId) => {
+    incrementItem(productId);
+  };
+
+  // Function to handle decrementing item quantity
+  const handleDecrement = (productId) => {
+    decrementItem(productId);
+  };
+
+  // Function to handle removing item from cart
+  const handleRemove = (productId) => {
+    removeFromCart(productId);
+  };
+
+  // Function to handle checkout
+  const handleCheckout = () => {
+   
+    if (totalPrice == 0) {
+      notification.warn({
+        message: "Cannot proceed to checkout",
+        description: "Add items to your cart to proceed to checkout.",
+      });
+    } else {
+      navigate("/check-out");
+    }
+  };
 
   return (
     <div>
@@ -29,47 +83,68 @@ const Cart = () => {
           <Col xs={24} md={16}>
             <Card className="cart-items">
               <Title level={3} className="cart-title">
-                CART (1)
+                CART ({totalItemCount})
               </Title>
               <Divider />
-              <div className="cart-item">
-                <div className="d-flex">
-                  <img
-                    src={Image1}
-                    alt="Dolce & Gabbana Bag"
-                    className="item-image"
-                  />
-                  <div className="item-details">
-                    <Text strong className="item-title">
-                      Dolce & Gabbana | Casual Style Calfskin 2WAY
-                    </Text>
-                    <Text className="item-desc">Plain Leather Party Style</Text>
-                    <Text className="item-price">$1,400.00 USD</Text>
-                  </div>
-                </div>
+              {cartItems.map((item, index) => (
+                <div key={item.id}>
+                  <div className="cart-item">
+                    <div className="d-flex">
+                      <img
+                        src={item.imageUrl}
+                        alt={item.name}
+                        className="item-image"
+                      />
+                      <div className="item-details">
+                        <Text strong className="item-title">
+                          {item.name}
+                        </Text>
+                        <Text className="item-desc">{item.description}</Text>
+                        <Text className="item-price">
+                          ${item.price.toFixed(2)} USD
+                        </Text>
+                      </div>
+                    </div>
 
-                <div className="quantity-control">
-                  <div>
-                    <Button
-                      type="text"
-                      icon={
-                        <img
-                          src={Delete}
-                          alt="icon"
-                          className="delete-btn"
+                    <div className="quantity-control">
+                      <div>
+                        <Button
+                          type="text"
+                          icon={
+                            <img
+                              src={Delete}
+                              alt="Delete"
+                              className="delete-btn"
+                            />
+                          }
+                          onClick={() => handleRemove(item.id)}
                         />
-                      }
-                    />
+                      </div>
+                      <div>
+                        <Button
+                          icon={<MinusOutlined />}
+                          className="minus-icon"
+                          onClick={() => handleDecrement(item.id)}
+                        />
+                        <Input
+                          value={item.count}
+                          className="quantity-input"
+                          readOnly
+                        />
+                        <Button
+                          icon={<PlusOutlined />}
+                          className="plus-icon"
+                          onClick={() => handleIncrement(item.id)}
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <Button icon={<MinusOutlined />} className="minus-icon" />
-                    <Input value="1" className="quantity-input" />
-                    <Button icon={<PlusOutlined />} className="plus-icon" />
-                  </div>
+                  {index !== cartItems.length - 1 && <Divider />}
                 </div>
-              </div>
+              ))}
             </Card>
           </Col>
+
           <Col xs={24} md={8}>
             <Card className="cart-summary">
               <Title level={3} className="cart-title">
@@ -80,15 +155,28 @@ const Cart = () => {
               <div className="summary-item">
                 <Text className="subtotal">Subtotal</Text>
                 <Text strong className="item-price-total">
-                  $1,400.00
+                  $
+                  {cartItems
+                    .reduce((acc, item) => acc + item.price * item.count, 0)
+                    .toFixed(2)}
                 </Text>
               </div>
               <Divider />
               <Text type="secondary" className="delivery-text">
                 Delivery charges calculated at checkout
               </Text>
-              <Button type="primary" block className="checkout-btn">
-                CHECKOUT ($1,400.00)
+              <Button
+                type="primary"
+                block
+                className="checkout-btn"
+                onClick={handleCheckout}
+                disabled={totalPrice === 0}
+              >
+                CHECKOUT ($
+                {cartItems
+                  .reduce((acc, item) => acc + item.price * item.count, 0)
+                  .toFixed(2)}
+                )
               </Button>
             </Card>
             <Text type="secondary" className="terms-text mb-0 pb-0">
@@ -116,8 +204,16 @@ const Cart = () => {
                 <Text className="product-description">
                   {product.description}
                 </Text>
-                <Text className="product-price">${product.price} USD</Text>
-                <Button className="add-to-cart-button">Add to Cart</Button>
+                <Text className="product-price">
+                  ${product.price.toFixed(2)}
+                </Text>
+
+                <Button
+                  className="add-to-cart-button"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Add to Cart
+                </Button>
               </Card>
             </Col>
           ))}
@@ -127,4 +223,5 @@ const Cart = () => {
     </div>
   );
 };
+
 export default Cart;

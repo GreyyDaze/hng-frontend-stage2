@@ -1,9 +1,18 @@
 import React from "react";
 import { Card, Row, Col, Button, Typography } from "antd";
+import { useCart } from "../../../context/CartContext.jsx";
 
 const { Text } = Typography;
 
 const LeatherBagsCollection = ({ products }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = (product) => {
+    addToCart(product);
+
+  };
+  
+
   return (
     <div className="leather-collection-container">
       <Row gutter={[20, 60]} className="leather-row">
@@ -16,8 +25,13 @@ const LeatherBagsCollection = ({ products }) => {
             >
               <Text className="product-name">{product.name}</Text>
               <Text className="product-description">{product.description}</Text>
-              <Text className="product-price">${product.price} USD</Text>
-              <Button className="add-to-cart-button">Add to Cart</Button>
+              <Text className="product-price">${product.price.toFixed(2)}</Text>
+              <Button
+                className="add-to-cart-button"
+                onClick={() => handleAddToCart(product)}
+              >
+                Add to Cart
+              </Button>
             </Card>
           </Col>
         ))}

@@ -7,6 +7,7 @@ const App = () => {
     <Routes>
       <Route path={paths.productList} element={<pages.ProductListing />} />
       <Route path={paths.cart} element={<pages.Cart />} />
+      <Route path={paths.checkout} element={<pages.Checkout />} />
     </Routes>
   );
 };

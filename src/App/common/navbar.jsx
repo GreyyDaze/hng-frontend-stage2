@@ -5,9 +5,14 @@ import Menu from "@images/icons/menu.png";
 import Search from "@images/icons/search.png";
 import Profile from "@images/icons/profile.png";
 import Cart from "@images/icons/cart.png";
+import { useCart } from "../../context/CartContext";
 
-const Navbar = ({ cartItemCount = 1 }) => {
+const Navbar = () => {
   const navigate = useNavigate();
+  const { cartItems } = useCart();
+
+  // Compute cartItemCount
+  const cartItemCount = cartItems.reduce((acc, item) => acc + item.count, 0);
 
   return (
     <div className="navbar-container">
@@ -20,19 +25,11 @@ const Navbar = ({ cartItemCount = 1 }) => {
           className="d-flex align-items-center justify-content-between box-1"
         >
           <div className="d-flex align-items-center">
-            <img
-              src={Menu}
-              alt="Menu Icon"
-              className="navbar-icon"
-            />
+            <img src={Menu} alt="Menu Icon" className="navbar-icon" />
             <h6 className="navbar-text">Menu</h6>
           </div>
           <div className="d-flex align-items-center">
-            <img
-              src={Search}
-              alt="Search Icon"
-              className="navbar-icon"
-            />
+            <img src={Search} alt="Search Icon" className="navbar-icon" />
             <h6 className="navbar-text">Search</h6>
           </div>
         </Col>
@@ -44,11 +41,7 @@ const Navbar = ({ cartItemCount = 1 }) => {
           className="d-flex align-items-center justify-content-between box-2"
         >
           <div className="d-flex align-items-center">
-            <img
-              src={Profile}
-              alt="Account Icon"
-              className="navbar-icon"
-            />
+            <img src={Profile} alt="Account Icon" className="navbar-icon" />
             <h6 className="navbar-text">Account</h6>
           </div>
           <div className="d-flex align-items-center">
@@ -66,11 +59,7 @@ const Navbar = ({ cartItemCount = 1 }) => {
                 }}
                 offset={[-5, 5]}
               >
-                <img
-                  src={Cart}
-                  alt="Cart Icon"
-                  className="navbar-icon"
-                />
+                <img src={Cart} alt="Cart Icon" className="navbar-icon" />
               </Badge>
             </span>
             <h6 className="navbar-text">Cart</h6>

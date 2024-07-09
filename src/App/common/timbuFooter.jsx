@@ -47,7 +47,7 @@ const TimbuFooter = () => {
           </Input.Group>
           <Checkbox className="footer-checkbox">
             <p className="p-0 m-0 mb-1">
-              I agree to TIMRU's Privacy and Cookie Policy. You can unsubscribe
+              I agree to TIMBU's Privacy and Cookie Policy. You can unsubscribe
               from newsletter at any time.
             </p>
             <span className="fw-bold">I accept the Legal Terms</span>
