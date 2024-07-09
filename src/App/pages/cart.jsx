@@ -94,7 +94,7 @@ const Cart = () => {
                         </Text>
                         <Text className="item-desc">{item.description}</Text>
                         <Text className="item-price">
-                          ${item.price.toFixed(2)} 
+                          ${item.price.toFixed(2)}
                         </Text>
                       </div>
                     </div>
@@ -115,7 +115,7 @@ const Cart = () => {
                       </div>
                       <div>
                         <Button
-                          icon={<MinusOutlined />}
+                          icon={<MinusOutlined className="icon" />}
                           className="minus-icon"
                           onClick={() => handleDecrement(item.id)}
                         />
@@ -125,7 +125,7 @@ const Cart = () => {
                           readOnly
                         />
                         <Button
-                          icon={<PlusOutlined />}
+                          icon={<PlusOutlined className="icon" />}
                           className="plus-icon"
                           onClick={() => handleIncrement(item.id)}
                         />
@@ -158,20 +158,20 @@ const Cart = () => {
               <Text type="secondary" className="delivery-text">
                 Delivery charges calculated at checkout
               </Text>
-              <Button
-                type="primary"
-                block
-                className="checkout-btn"
-                onClick={handleCheckout}
-                disabled={totalPrice === 0}
-              >
-                CHECKOUT ($
-                {cartItems
-                  .reduce((acc, item) => acc + item.price * item.count, 0)
-                  .toFixed(2)}
-                )
-              </Button>
             </Card>
+            <Button
+              type="primary"
+              block
+              className="checkout-btn"
+              onClick={handleCheckout}
+              disabled={totalPrice === 0}
+            >
+              CHECKOUT ($
+              {cartItems
+                .reduce((acc, item) => acc + item.price * item.count, 0)
+                .toFixed(2)}
+              )
+            </Button>
             <Text type="secondary" className="terms-text mb-0 pb-0">
               Returns allowed are allowed for ELIGIBLE Products.
             </Text>
@@ -191,22 +191,27 @@ const Cart = () => {
               <Card
                 hoverable
                 cover={<img alt={product.name} src={product.imageUrl} />}
-                className="custom-card"
+                className="custom-card mt-4"
               >
-                <Text className="product-name">{product.name}</Text>
-                <Text className="product-description">
-                  {product.description}
-                </Text>
-                <Text className="product-price">
-                  ${product.price.toFixed(2)}
-                </Text>
-
-                <Button
-                  className="add-to-cart-button"
-                  onClick={() => handleAddToCart(product)}
-                >
-                  Add to Cart
-                </Button>
+                <div className="card-content">
+                  <div className="product-info">
+                    <Text className="product-name">{product.name}</Text>
+                    <Text className="product-description">
+                      {product.description}
+                    </Text>
+                    <Text className="product-price">
+                      ${product.price.toFixed(2)}
+                    </Text>
+                  </div>
+                  <div className="product-action">
+                    <Button
+                      className="add-to-cart-button"
+                      onClick={() => handleAddToCart(product)}
+                    >
+                      Add to Cart
+                    </Button>
+                  </div>
+                </div>
               </Card>
             </Col>
           ))}
