@@ -18,7 +18,7 @@ const TimbuFooter = () => {
           sm={24}
           md={24}
           lg={14}
-          order={0}
+          order={1}
           className="my-5 d-flex align-items-center flex-column footer-col-1"
         >
           <div className="links-1  mb-4">
