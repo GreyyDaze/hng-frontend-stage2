@@ -50,7 +50,7 @@ const Checkout = () => {
     firstName: "",
     lastName: "",
     email: "",
-    country: "",
+    country: "United States",
     postalCode: "",
     phoneNumber: "",
     cardNumber: "",
@@ -301,14 +301,7 @@ const Checkout = () => {
                 <Row gutter={16}>
                   <Col xs={24} sm={12}>
                     <Form.Item
-                      label={
-                        <span className="fw-bold">
-                          Security code
-                          <Tooltip title="The 3-digit code on the back of your card">
-                            <QuestionCircleOutlined className="ms-2 " />
-                          </Tooltip>
-                        </span>
-                      }
+                      label={<span className="fw-bold">Security code</span>}
                       className="custom-form-item"
                     >
                       <Input
@@ -318,6 +311,9 @@ const Checkout = () => {
                         placeholder="***"
                         className="custom-input"
                       />
+                      <Tooltip title="The 3-digit code on the back of your card">
+                        <QuestionCircleOutlined className="card-logo " />
+                      </Tooltip>
                     </Form.Item>
 
                     {formErrors.securityCode &&

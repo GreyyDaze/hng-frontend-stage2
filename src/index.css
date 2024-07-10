@@ -655,7 +655,7 @@ h1.title-total {
   right: 0.5rem;
   top: 50%;
   transform: translateY(-70%);
-  height: 2rem;
+  height: 2rem !important;
 }
 
 .ant-form-item-label {
