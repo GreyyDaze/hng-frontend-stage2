@@ -22,7 +22,7 @@ const TimbuFooter = () => {
           className="my-5 d-flex align-items-center flex-column footer-col-1"
         >
           <div className="links-1  mb-4">
-            <Text className="me-5">Contact Us</Text>
+            <Text className="me-5">CONTACT US</Text>
             <Text>JOIN US ON</Text>
           </div>
           <div className="links-2  mb-4">
@@ -32,7 +32,7 @@ const TimbuFooter = () => {
           </div>
           <div className="links-3 mb-3">
             <Text className="me-3">PAYMENT METHODS & DELIVERY PARTNERS</Text>
-            <Text>Terms & Condition</Text>
+            <Text>TERMS & CONDITION</Text>
           </div>
         </Col>
         <Col xs={24} sm={24} md={24} lg={10} className="footer-col-2">
@@ -58,7 +58,7 @@ const TimbuFooter = () => {
       <Row justify="center" className="footer-bottom">
         <Col>
           <Text>
-            © 2024 TIMBU, Inc. All rights reserved
+            © 2024 Kas, Inc. All rights reserved
           </Text>
         </Col>
       </Row>

@@ -68,6 +68,12 @@ const Cart = () => {
     }
   };
 
+  const priceFormatter = new Intl.NumberFormat("en-US", {
+    style: "decimal",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   return (
     <div>
       <SalesCountdown />
@@ -96,7 +102,8 @@ const Cart = () => {
                         </Text>
                         <Text className="item-desc">{item.description}</Text>
                         <Text className="item-price">
-                          ${item.price.toFixed(2)}
+                          {/* ${item.price.toFixed(2)} */}$
+                          {priceFormatter.format(item.price)}
                         </Text>
                       </div>
                     </div>
@@ -151,9 +158,12 @@ const Cart = () => {
                 <Text className="subtotal">Subtotal</Text>
                 <Text strong className="item-price-total">
                   $
-                  {cartItems
-                    .reduce((acc, item) => acc + item.price * item.count, 0)
-                    .toFixed(2)}
+                  {priceFormatter.format(
+                    cartItems.reduce(
+                      (acc, item) => acc + item.price * item.count,
+                      0
+                    )
+                  )}
                 </Text>
               </div>
               <Divider />
@@ -168,11 +178,7 @@ const Cart = () => {
               onClick={handleCheckout}
               // disabled={totalPrice === 0}
             >
-              CHECKOUT ($
-              {cartItems
-                .reduce((acc, item) => acc + item.price * item.count, 0)
-                .toFixed(2)}
-              )
+              CHECKOUT (${priceFormatter.format(totalPrice)})
             </Button>
             <Text type="secondary" className="terms-text mb-0 pb-0">
               Returns allowed are allowed for ELIGIBLE Products.
@@ -202,7 +208,8 @@ const Cart = () => {
                       {product.description}
                     </Text>
                     <Text className="product-price">
-                      ${product.price.toFixed(2)}
+                      {/* ${product.price.toFixed(2)} */}$
+                      {priceFormatter.format(product.price)}
                     </Text>
                   </div>
                   <div className="product-action">

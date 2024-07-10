@@ -11,7 +11,6 @@ const LeatherBagsCollection = ({ products }) => {
     addToCart(product);
   };
 
-  // Create a formatter for the price
   const priceFormatter = new Intl.NumberFormat("en-US", {
     style: "decimal",
     minimumFractionDigits: 2,
