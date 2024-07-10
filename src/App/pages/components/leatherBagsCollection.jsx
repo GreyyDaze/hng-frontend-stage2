@@ -11,6 +11,13 @@ const LeatherBagsCollection = ({ products }) => {
     addToCart(product);
   };
 
+  // Create a formatter for the price
+  const priceFormatter = new Intl.NumberFormat("en-US", {
+    style: "decimal",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   return (
     <div className="leather-collection-container">
       <Row gutter={[20, 60]} className="leather-row">
@@ -28,7 +35,7 @@ const LeatherBagsCollection = ({ products }) => {
                     {product.description}
                   </Text>
                   <Text className="product-price">
-                    ${product.price.toFixed(2)}
+                    ${priceFormatter.format(product.price)}
                   </Text>
                 </div>
                 <div className="product-action">
