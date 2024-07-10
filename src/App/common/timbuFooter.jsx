@@ -12,7 +12,7 @@ const { Title, Text, Link } = Typography;
 const TimbuFooter = () => {
   return (
     <Footer className="custom-footer">
-      <Row gutter={[16, 16]} justify="space-between">
+      <Row gutter={[22, 16]} justify="space-between">
         <Col
           xs={24}
           sm={24}
