@@ -168,7 +168,7 @@ const Cart = () => {
               </div>
               <Divider />
               <Text type="secondary" className="delivery-text">
-                Delivery charges calculated at checkout
+                Delivery requires additional fee{" "}
               </Text>
             </Card>
             <Button
