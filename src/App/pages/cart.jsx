@@ -181,7 +181,7 @@ const Cart = () => {
               CHECKOUT (${priceFormatter.format(totalPrice)})
             </Button>
             <Text type="secondary" className="terms-text mb-0 pb-0">
-              Returns allowed are allowed for ELIGIBLE Products.
+              Returns are allowed for ELIGIBLE Products.
             </Text>
             <Text type="secondary" className="terms-text p-0 m-0">
               Terms & Conditions apply.
