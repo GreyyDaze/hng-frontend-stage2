@@ -34,6 +34,11 @@ const Cart = () => {
 
   const handleAddToCart = (product) => {
     addToCart(product);
+    notification.open({
+      message: "Item Added to Cart",
+      description: `${product.name} has been added to your cart.`,
+      type: "success",
+    });
   };
 
   useEffect(() => {
@@ -48,7 +53,19 @@ const Cart = () => {
   };
 
   const handleDecrement = (productId) => {
-    decrementItem(productId);
+    const product = cartItems.find((item) => item.id === productId);
+
+    if (product) {
+      if (product.count === 1) {
+        notification.open({
+          message: "Cannot Decrease Quantity",
+          description: `The quantity of ${product.name} is already at its minimum.`,
+          type: "warning",
+        });
+      } else {
+        decrementItem(productId);
+      }
+    }
   };
 
   const handleRemove = (productId) => {
@@ -60,7 +77,7 @@ const Cart = () => {
       notification.open({
         message: "Cannot proceed to checkout",
         description: "Add items to your cart to proceed to checkout.",
-        type: "warning", // This sets the notification type to warning
+        type: "warning",
       });
       console.log("Cannot proceed to checkout");
     } else {
@@ -103,7 +120,7 @@ const Cart = () => {
                         <Text className="item-desc">{item.description}</Text>
                         <Text className="item-price">
                           {/* ${item.price.toFixed(2)} */}$
-                          {priceFormatter.format(item.price)}
+                          {priceFormatter.format(item.price * item.count)}
                         </Text>
                       </div>
                     </div>

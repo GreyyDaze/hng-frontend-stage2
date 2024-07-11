@@ -9,6 +9,11 @@ const LeatherBagsCollection = ({ products }) => {
 
   const handleAddToCart = (product) => {
     addToCart(product);
+    notification.open({
+      message: "Item Added to Cart",
+      description: `${product.name} has been added to your cart.`,
+      type: "success", 
+    });
   };
 
   const priceFormatter = new Intl.NumberFormat("en-US", {
