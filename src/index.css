@@ -353,7 +353,7 @@ label {
 
 .item-details {
   flex-grow: 1;
-  flex: 0 0 80%;
+  flex: 0 0 70%;
 }
 
 .item-title {
@@ -705,7 +705,7 @@ h1.title-total {
 }
 
 .product-info {
-  flex-grow: 1;
+  flex-grow: 1 !important;
 }
 
 .product-action {
