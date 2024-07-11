@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Row, Col, Button, Typography } from "antd";
+import { Card, Row, Col, Button, Typography, notification } from "antd";
 import { useCart } from "../../../context/CartContext.jsx";
 
 const { Text } = Typography;
@@ -12,7 +12,7 @@ const LeatherBagsCollection = ({ products }) => {
     notification.open({
       message: "Item Added to Cart",
       description: `${product.name} has been added to your cart.`,
-      type: "success", 
+      type: "success",
     });
   };
 
