@@ -1142,7 +1142,6 @@ h1.title-total {
     margin-right: 8.5rem !important;
   }
 
-
   .cart-title {
     font-size: 1.1rem !important;
   }
@@ -1150,8 +1149,6 @@ h1.title-total {
     max-width: 25.5% !important;
     flex: 0 0 25.5% !important;
   }
-
-
 
   .box-1 {
     margin-right: 6.2rem !important;
@@ -1223,11 +1220,8 @@ h1.title-total {
     margin-bottom: 3.125rem;
   }
 
-  
-
   .footer-bottom {
     margin-top: 1rem !important;
-
   }
 
   .footer-col-1 span {
@@ -2086,5 +2080,21 @@ h1.title-total {
   .footer-col-1 .links-3 {
     display: flex !important;
     flex-direction: column !important;
+  }
+
+  .ant-card-cover img {
+    height: 10rem !important;
+  }
+
+  .hero-carousel-container {
+    width: 89%;
+  }
+
+  .hero-image {
+    height: 17rem;
+  }
+
+  .leather-row .ant-card .ant-card-body {
+    padding: 10px 14px!important;
   }
 }
