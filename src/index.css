@@ -65,6 +65,7 @@ label {
 }
 
 .navbar-icon {
+  cursor: pointer !important;
   width: 2.5rem;
   height: 2.5rem;
 }
@@ -2095,6 +2096,6 @@ h1.title-total {
   }
 
   .leather-row .ant-card .ant-card-body {
-    padding: 10px 14px!important;
+    padding: 10px 14px !important;
   }
 }
