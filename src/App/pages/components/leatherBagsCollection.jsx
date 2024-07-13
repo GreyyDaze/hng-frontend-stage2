@@ -20,8 +20,6 @@ const LeatherBagsCollection = () => {
   const totalProducts = 30;
   const pageSize = 10;
 
- 
-
   const priceFormatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -50,40 +48,48 @@ const LeatherBagsCollection = () => {
   return (
     <div className="leather-collection-container">
       <Row gutter={[20, 60]} className="leather-row">
-        {products.map((product) => (
-          <Col key={product.id} xs={12} sm={10} md={8} lg={6}>
-            <Card
-              hoverable
-              cover={
-                <img
-                  alt={product.name}
-                  src={`https://api.timbu.cloud/images/${product.photos[0]?.url}`}
-                />
-              }
-              className="custom-card"
-            >
-              <div className="card-content">
-                <div className="product-info">
-                  <Text className="product-name">{product.name}</Text>
-                  <Text className="product-description">
-                    {product.description}
-                  </Text>
-                  <Text className="product-price">
-                    {priceFormatter.format(product.current_price[0]?.USD[0])}
-                  </Text>
+        {products && products.length > 0 ? (
+          products.map((product) => (
+            <Col key={product.id} xs={12} sm={10} md={8} lg={6}>
+              <Card
+                hoverable
+                cover={
+                  <img
+                    alt={product.name}
+                    src={`https://api.timbu.cloud/images/${product.photos?.[0]?.url}`}
+                  />
+                }
+                className="custom-card"
+              >
+                <div className="card-content">
+                  <div className="product-info">
+                    <Text className="product-name">{product.name}</Text>
+                    <Text className="product-description">
+                      {product.description}
+                    </Text>
+                    <Text className="product-price">
+                      {priceFormatter.format(
+                        product.current_price?.[0]?.USD?.[0]
+                      )}
+                    </Text>
+                  </div>
+                  <div className="product-action">
+                    <Button
+                      className="add-to-cart-button"
+                      onClick={() =>
+                        navigation(`/product-detail/${product.id}`)
+                      }
+                    >
+                      View Details
+                    </Button>
+                  </div>
                 </div>
-                <div className="product-action">
-                  <Button
-                    className="add-to-cart-button"
-                    onClick={() => navigation(`/product-detail/${product.id}`)}
-                  >
-                    View Details
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          </Col>
-        ))}
+              </Card>
+            </Col>
+          ))
+        ) : (
+          <div>No products available</div>
+        )}
       </Row>
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}

@@ -12,6 +12,7 @@ import {
   Carousel,
   Button,
   InputNumber,
+  notification,
 } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import axios from "axios";
@@ -64,13 +65,13 @@ const ProductDetail = () => {
       <CompanyLogo />
       <Navbar />
 
-      <div className="container ">
+      <div className="container">
         <Card bordered={false} className="product-card">
           <Row gutter={[32, 32]}>
             <Col xs={24} md={12}>
-              <Carousel autoplay className="product-carousel">
-                {product &&
-                  product.photos.map((image, index) => (
+              {product && product.photos && product.photos.length > 0 ? (
+                <Carousel autoplay className="product-carousel">
+                  {product.photos.map((image, index) => (
                     <div key={index}>
                       <img
                         src={`https://api.timbu.cloud/images/${image.url}`}
@@ -79,7 +80,10 @@ const ProductDetail = () => {
                       />
                     </div>
                   ))}
-              </Carousel>
+                </Carousel>
+              ) : (
+                <div>No images available</div>
+              )}
             </Col>
             <Col xs={24} md={12}>
               <Title level={2} className="product-title">
@@ -99,7 +103,7 @@ const ProductDetail = () => {
                   min={1}
                   max={10}
                   defaultValue={1}
-                  value={product.available_quantity}
+                  value={product && product.available_quantity}
                 />
               </div>
               <div className="action-buttons">
