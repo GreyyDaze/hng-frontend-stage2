@@ -8,6 +8,10 @@ const App = () => {
       <Route path={paths.productList} element={<pages.ProductListing />} />
       <Route path={paths.cart} element={<pages.Cart />} />
       <Route path={paths.checkout} element={<pages.Checkout />} />
+      <Route
+        path={paths.productDetail(":id")}
+        element={<pages.ProductDetail />}
+      />
     </Routes>
   );
 };
