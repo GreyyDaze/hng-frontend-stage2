@@ -9,13 +9,13 @@ export default defineConfig({
       '@images': path.resolve(__dirname, 'src/assets'),
     },
   },
-  // server: {
-  //   proxy: {
-  //     '/api': {
-  //       target: 'https://api.timbu.cloud',
-  //       changeOrigin: true,
-  //       rewrite: (path) => path.replace(/^\/api/, ''),
-  //     },
-  //   },
-  // },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'https://api.timbu.cloud',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+    },
+  },
 });

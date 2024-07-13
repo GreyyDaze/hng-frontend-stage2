@@ -20,9 +20,11 @@ const LeatherBagsCollection = () => {
   const totalProducts = 30;
   const pageSize = 10;
 
-  const priceFormatter = new Intl.NumberFormat("en-US", {
+  const priceFormatter = new Intl.NumberFormat("en-NG", {
     style: "currency",
-    currency: "USD",
+    currency: "NGN",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   });
 
   useEffect(() => {
@@ -64,12 +66,9 @@ const LeatherBagsCollection = () => {
                 <div className="card-content">
                   <div className="product-info">
                     <Text className="product-name">{product.name}</Text>
-                    <Text className="product-description">
-                      {product.description}
-                    </Text>
-                    <Text className="product-price">
+                    <Text className="product-price mt-4">
                       {priceFormatter.format(
-                        product.current_price?.[0]?.USD?.[0]
+                        product.current_price?.[0]?.NGN?.[0]
                       )}
                     </Text>
                   </div>

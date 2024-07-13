@@ -31,6 +31,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     const itemIndex = cartItems.findIndex((item) => item.id === product.id);
 
+    console.log("Item Index", product);
     if (itemIndex !== -1) {
       const updatedCartItems = [...cartItems];
       updatedCartItems[itemIndex].count++;
@@ -41,19 +42,19 @@ export const CartProvider = ({ children }) => {
         id: product.id,
         name: product.name,
         description: product.description,
-        price: product.price,
-        imageUrl: product.imageUrl,
+        price: product.current_price,
+        imageUrl: product.photos[0]?.url,
         count: 1,
       };
       setCartItems([...cartItems, newItem]);
-      updateTotalCountsAndPrice([...cartItems, newItem]); 
+      updateTotalCountsAndPrice([...cartItems, newItem]);
     }
   };
 
   const removeFromCart = (productId) => {
     const updatedCartItems = cartItems.filter((item) => item.id !== productId);
     setCartItems(updatedCartItems);
-    updateTotalCountsAndPrice(updatedCartItems); 
+    updateTotalCountsAndPrice(updatedCartItems);
   };
 
   const incrementItem = (productId) => {
@@ -78,7 +79,7 @@ export const CartProvider = ({ children }) => {
     if (itemIndex !== -1 && updatedCartItems[itemIndex].count > 1) {
       updatedCartItems[itemIndex].count--;
       setCartItems(updatedCartItems);
-      updateTotalCountsAndPrice(updatedCartItems); 
+      updateTotalCountsAndPrice(updatedCartItems);
     }
   };
 

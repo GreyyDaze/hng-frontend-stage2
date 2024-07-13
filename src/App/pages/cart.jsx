@@ -33,6 +33,7 @@ const Cart = () => {
   const [randomProducts, setRandomProducts] = useState([]);
 
   const handleAddToCart = (product) => {
+    console.log("Product added to cart:", product);
     addToCart(product);
     notification.open({
       message: "Item Added to Cart",
@@ -89,6 +90,7 @@ const Cart = () => {
     style: "decimal",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
+    currency: "NGN",
   });
 
   return (
@@ -109,7 +111,7 @@ const Cart = () => {
                   <div className="cart-item">
                     <div className="d-flex">
                       <img
-                        src={item.imageUrl}
+                        src={`https://api.timbu.cloud/images/${item.imageUrl}`}
                         alt={item.name}
                         className="item-image"
                       />
@@ -117,10 +119,8 @@ const Cart = () => {
                         <Text strong className="item-title">
                           {item.name}
                         </Text>
-                        <Text className="item-desc">{item.description}</Text>
                         <Text className="item-price">
-                          {/* ${item.price.toFixed(2)} */}$
-                          {priceFormatter.format(item.price * item.count)}
+                          ₦ {priceFormatter.format(item.price * item.count)}
                         </Text>
                       </div>
                     </div>
@@ -174,7 +174,7 @@ const Cart = () => {
               <div className="summary-item">
                 <Text className="subtotal">Subtotal</Text>
                 <Text strong className="item-price-total">
-                  $
+                  ₦
                   {priceFormatter.format(
                     cartItems.reduce(
                       (acc, item) => acc + item.price * item.count,
@@ -195,7 +195,7 @@ const Cart = () => {
               onClick={handleCheckout}
               // disabled={totalPrice === 0}
             >
-              CHECKOUT (${priceFormatter.format(totalPrice)})
+              CHECKOUT (₦{priceFormatter.format(totalPrice)})
             </Button>
             <Text type="secondary" className="terms-text mb-0 pb-0">
               Returns are allowed for ELIGIBLE Products.
