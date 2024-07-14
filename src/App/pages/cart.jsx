@@ -13,7 +13,7 @@ import {
   Divider,
   notification,
 } from "antd";
-import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
+import { PlusOutlined, MinusOutlined, DeleteOutlined } from "@ant-design/icons";
 import Delete from "@images/icons/delete.png";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext.jsx";
@@ -29,19 +29,10 @@ const Cart = () => {
     decrementItem,
     addToCart,
     totalPrice,
+    clearCart, // Added clearCart function
   } = useCart();
   const [relatedProducts, setRelatedProducts] = useState([]);
   const navigation = useNavigate();
-
-  const handleAddToCart = (product) => {
-    console.log("Product added to cart:", product);
-    addToCart(product);
-    notification.open({
-      message: "Item Added to Cart",
-      description: `${product.name} has been added to your cart.`,
-      type: "success",
-    });
-  };
 
   useEffect(() => {
     fetchRelatedProducts();
@@ -98,6 +89,15 @@ const Cart = () => {
     }
   };
 
+  const handleClearCart = () => {
+    clearCart();
+    notification.open({
+      message: "Cart Cleared",
+      description: "All items have been removed from your cart.",
+      type: "info",
+    });
+  };
+
   const priceFormatter = new Intl.NumberFormat("en-NG", {
     style: "decimal",
     minimumFractionDigits: 2,
@@ -114,9 +114,26 @@ const Cart = () => {
         <Row gutter={[16, 16]}>
           <Col xs={24} md={16}>
             <Card className="cart-items">
-              <Title level={3} className="cart-title">
-                CART ({totalItemCount})
-              </Title>
+              <div
+                className="cart-header"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <Title level={3} className="cart-title">
+                  CART ({totalItemCount})
+                </Title>
+                <Button
+                  type="link"
+                  icon={<DeleteOutlined />}
+                  onClick={handleClearCart}
+                  className="clear-cart-btn"
+                >
+                  Clear All Cart
+                </Button>
+              </div>
               <Divider />
               {cartItems.map((item, index) => (
                 <div key={item.id}>

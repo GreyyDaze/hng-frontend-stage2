@@ -430,6 +430,7 @@ label {
   padding-top: 1.3rem !important;
   padding-bottom: 1.3rem !important;
   background-color: #afd89d !important;
+  margin-top: 1.4rem;
 }
 
 .icon {
@@ -1115,7 +1116,7 @@ h1.title-total {
   }
 
   .item-details {
-    flex: 0 0 70%;
+    flex: 0 0 62%;
   }
 
   .item-title {
@@ -1973,12 +1974,12 @@ h1.title-total {
   }
 
   .item-image {
-    height: 7rem;
+    height: 7.2rem;
     flex: 0 0 30%;
   }
 
   .item-details {
-    flex: 0 0 55%;
+    flex: 0 0 54%;
   }
 
   .item-title {
