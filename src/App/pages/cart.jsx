@@ -16,8 +16,8 @@ import {
 import { PlusOutlined, MinusOutlined } from "@ant-design/icons";
 import Delete from "@images/icons/delete.png";
 import { useNavigate } from "react-router-dom";
-import { leatherBags } from "../../utils/data";
 import { useCart } from "../../context/CartContext.jsx";
+import axios from "axios";
 const { Text, Title } = Typography;
 
 const Cart = () => {
@@ -30,7 +30,7 @@ const Cart = () => {
     addToCart,
     totalPrice,
   } = useCart();
-  const [randomProducts, setRandomProducts] = useState([]);
+  const [relatedProducts, setRelatedProducts] = useState([]);
 
   const handleAddToCart = (product) => {
     console.log("Product added to cart:", product);
@@ -43,9 +43,20 @@ const Cart = () => {
   };
 
   useEffect(() => {
-    const shuffled = leatherBags.sort(() => 0.5 - Math.random());
-    setRandomProducts(shuffled.slice(0, 4));
+    fetchRelatedProducts();
   }, []);
+
+  const fetchRelatedProducts = async () => {
+    try {
+      const response = await axios.get(
+        `/api/products?organization_id=2f5fd01de3984e7cb02664ade3d3aba1&reverse_sort=false&page=1&size=4&Appid=N56K7YCIHBAKPOV&Apikey=b3358887daa04cb7a517201f7bb3087f20240713012036686158`
+      );
+      setRelatedProducts(response.data.items);
+      console.log("Related Products", response.data);
+    } catch (error) {
+      console.error("Error fetching related products:", error);
+    }
+  };
 
   const totalItemCount = cartItems.reduce((acc, item) => acc + item.count, 0);
 
@@ -86,7 +97,7 @@ const Cart = () => {
     }
   };
 
-  const priceFormatter = new Intl.NumberFormat("en-US", {
+  const priceFormatter = new Intl.NumberFormat("en-NG", {
     style: "decimal",
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
@@ -211,22 +222,27 @@ const Cart = () => {
         </Title>
 
         <Row gutter={[20, 60]} className="related-row leather-row">
-          {randomProducts.map((product) => (
+          {relatedProducts.map((product) => (
             <Col key={product.id} xs={12} sm={10} md={8} lg={6}>
               <Card
                 hoverable
-                cover={<img alt={product.name} src={product.imageUrl} />}
+                cover={
+                  <img
+                    alt={product.name}
+                    src={`https://api.timbu.cloud/images/${product.photos?.[0]?.url}`}
+                  />
+                }
                 className="custom-card mt-4"
               >
                 <div className="card-content">
                   <div className="product-info">
                     <Text className="product-name">{product.name}</Text>
-                    <Text className="product-description">
-                      {product.description}
-                    </Text>
-                    <Text className="product-price">
-                      {/* ${product.price.toFixed(2)} */}$
-                      {priceFormatter.format(product.price)}
+
+                    <Text className="product-price mt-3">
+                      ₦
+                      {priceFormatter.format(
+                        product.current_price?.[0]?.NGN?.[0]
+                      )}
                     </Text>
                   </div>
                   <div className="product-action">
