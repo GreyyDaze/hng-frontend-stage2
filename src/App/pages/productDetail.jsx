@@ -13,6 +13,7 @@ import {
   Button,
   InputNumber,
   notification,
+  Spin,
 } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import axios from "axios";
@@ -43,7 +44,6 @@ const ProductDetail = () => {
           `https://timbu-get-single-product.reavdev.workers.dev/${id}?organization_id=2f5fd01de3984e7cb02664ade3d3aba1&Appid=N56K7YCIHBAKPOV&Apikey=b3358887daa04cb7a517201f7bb3087f20240713012036686158`
         );
         setProduct(response.data);
-
         console.log("Product fetched:", response.data);
         setLoading(false);
       } catch (error) {
@@ -56,7 +56,11 @@ const ProductDetail = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>; // Placeholder for loading state
+    return (
+      <div className="loading-spinner">
+        <Spin size="large" />
+      </div>
+    ); 
   }
 
   return (

@@ -144,6 +144,13 @@ const Checkout = () => {
     }
   };
 
+  const priceFormatter = new Intl.NumberFormat("en-NG", {
+    style: "decimal",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+    currency: "NGN",
+  });
+
   return (
     <div>
       <SalesCountdown />
@@ -370,7 +377,7 @@ const Checkout = () => {
                   </Title>
                   <div className="">
                     <Title level={5} className="order-product-price">
-                      $ {item.price.toFixed(2)}
+                      ₦{priceFormatter.format(item.price)}
                     </Title>
                   </div>
                 </div>

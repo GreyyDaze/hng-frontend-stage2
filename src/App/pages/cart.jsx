@@ -27,7 +27,6 @@ const Cart = () => {
     removeFromCart,
     incrementItem,
     decrementItem,
-    addToCart,
     totalPrice,
     clearCart, // Added clearCart function
   } = useCart();
