@@ -31,6 +31,7 @@ const Cart = () => {
     totalPrice,
   } = useCart();
   const [relatedProducts, setRelatedProducts] = useState([]);
+  const navigation = useNavigate();
 
   const handleAddToCart = (product) => {
     console.log("Product added to cart:", product);
@@ -248,9 +249,11 @@ const Cart = () => {
                   <div className="product-action">
                     <Button
                       className="add-to-cart-button"
-                      onClick={() => handleAddToCart(product)}
+                      onClick={() =>
+                        navigation(`/product-detail/${product.id}`)
+                      }
                     >
-                      Add to Cart
+                      View Details
                     </Button>
                   </div>
                 </div>

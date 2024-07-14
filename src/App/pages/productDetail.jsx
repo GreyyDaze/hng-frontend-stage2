@@ -112,7 +112,7 @@ const ProductDetail = () => {
                   icon={<ShoppingCartOutlined />}
                   size="large"
                   block
-                  className="add-to-cart-btn"
+                  className="add-to-cart-button"
                   onClick={() => handleAddToCart(product)}
                 >
                   ADD TO CART
