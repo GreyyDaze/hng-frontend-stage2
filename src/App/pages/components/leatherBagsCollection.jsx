@@ -28,7 +28,11 @@ const LeatherBagsCollection = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `/api/products?organization_id=2f5fd01de3984e7cb02664ade3d3aba1&reverse_sort=false&page=${currentPage}&size=${pageSize}&Appid=N56K7YCIHBAKPOV&Apikey=b3358887daa04cb7a517201f7bb3087f20240713012036686158`
+        `/api/products?organization_id=${
+          import.meta.env.VITE_ORGANIZATION_ID
+        }&reverse_sort=false&page=${currentPage}&size=${pageSize}&Appid=${
+          import.meta.env.VITE_APP_ID
+        }&Apikey=${import.meta.env.VITE_API}`
       );
       setProducts(response.data.items);
       console.log("Products", response.data);

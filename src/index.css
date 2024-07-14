@@ -1382,7 +1382,7 @@ h1.title-total {
     font-size: 0.9rem !important;
     padding: 1.1rem 0rem !important;
 
-    width: 80% !important;
+    max-width: 91% !important;
   }
 
   .order-product-name,
@@ -1668,6 +1668,13 @@ h1.title-total {
 }
 
 @media (max-width: 430px) {
+  .checkout-container {
+    max-width: 100% !important;
+  }
+  .complete-purchase {
+    margin-left: .7rem !important;
+    max-width: 100% !important;
+  }
   .check-col-1 {
     max-width: 100% !important;
   }
@@ -1941,6 +1948,12 @@ h1.title-total {
 }
 
 @media (max-width: 390px) {
+  .section-number {
+    width: 1.35rem;
+    height: 1.35rem;
+    margin-bottom: 0px !important;
+  }
+
   .item-image {
     margin-right: 0.7rem !important;
   }
@@ -2233,6 +2246,7 @@ h1.title-total {
 }
 
 @media (max-width: 360px) {
+  
   .item-image {
     margin-right: 0.5rem !important;
   }
