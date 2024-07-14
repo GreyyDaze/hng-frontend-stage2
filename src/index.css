@@ -1408,7 +1408,7 @@ h1.title-total {
   }
 
   .checkout-heading {
-    padding: 0rem 2.5rem !important;
+    padding: 0rem 2rem !important;
     margin-top: 2rem;
     margin-bottom: 1.5rem;
   }
@@ -1645,9 +1645,36 @@ h1.title-total {
     margin-top: 2.0625rem;
     margin-bottom: 3rem;
   }
+
+  /* .info-card .ant-card-body {
+    padding-left: 0.5rem !important;
+  } */
+
+  .checkout-container {
+    /* padding: 0rem !important; */
+    padding-left: 2rem !important;
+    padding-right: 0rem !important;
+    max-width: 97%;
+  }
+
+  .check-col-1 {
+    max-width: 90% !important;
+  }
+
+  .check-col-2 {
+    max-width: 90% !important;
+  }
+
 }
 
 @media (max-width: 430px) {
+  .check-col-1 {
+    max-width: 100% !important;
+  }
+
+  .check-col-2 {
+    max-width: 100% !important;
+  }
   .product-title {
     font-size: 1.5rem;
   }

@@ -164,7 +164,7 @@ const Checkout = () => {
       <div className="checkout-container">
         <Row
           gutter={{
-            xs: 16,
+            xs: 12,
             lg: 25,
           }}
         >
