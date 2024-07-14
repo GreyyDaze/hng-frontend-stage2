@@ -131,7 +131,7 @@ const ProductDetail = () => {
               </div>
               <div className="contact-info">
                 <Title level={5}>Need Help?</Title>
-                <Text>Call 07006000000 To Place Your Order</Text>
+                <Text>Call 087458291941 To Place Your Order</Text>
               </div>
             </Col>
           </Row>
