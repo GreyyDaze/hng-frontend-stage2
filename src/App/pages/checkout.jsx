@@ -368,10 +368,7 @@ const Checkout = () => {
                   <Title level={5} className="order-product-name">
                     {item.name}
                   </Title>
-                  <div className="d-flex justify-content-between">
-                    <Title level={5} className="order-product-detail">
-                      {item.description}
-                    </Title>
+                  <div className="">
                     <Title level={5} className="order-product-price">
                       $ {item.price.toFixed(2)}
                     </Title>

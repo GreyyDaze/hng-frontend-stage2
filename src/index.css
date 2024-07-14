@@ -511,20 +511,29 @@ label {
   font-size: 1.75rem !important;
 }
 
-.order-product-name,
-.order-product-detail,
-.order-product-price {
+.order-product-name{
   font-size: 1.2rem !important;
   margin: 0px !important;
 }
+
+.order-product-price {
+  font-size: 1.2rem !important;
+  margin: 0px !important;
+  text-align: right !important;
+}
+
+/* .order-product-detail {
+  font-size: 1.1rem !important;
+  margin: 0px !important;
+} */
 
 .order-product-name {
   margin-top: 1.188rem;
 }
 
-.order-product-detail {
+/* .order-product-detail {
   font-weight: 400 !important;
-}
+} */
 
 .price-details {
   margin-top: 1rem;
@@ -831,7 +840,7 @@ h1.title-total {
   }
 
   .order-product-name,
-  .order-product-detail,
+  /* .order-product-detail, */
   .order-product-price {
     font-size: 1rem !important;
     padding-bottom: 0.2rem !important;
@@ -1060,7 +1069,7 @@ h1.title-total {
   }
 
   .order-product-name,
-  .order-product-detail,
+  /* .order-product-detail, */
   .order-product-price {
     font-size: 0.9rem !important;
     padding-bottom: 0.1rem !important;
@@ -1383,7 +1392,7 @@ h1.title-total {
   }
 
   .order-product-name,
-  .order-product-detail,
+  /* .order-product-detail, */
   .order-product-price {
     font-size: 0.78rem !important;
   }
@@ -1904,7 +1913,7 @@ h1.title-total {
   }
 
   .check-col-2 {
-    max-width: 90% !important;
+    max-width: 100% !important;
   }
 
   .section-title {
@@ -1927,7 +1936,7 @@ h1.title-total {
   }
 
   .order-product-name,
-  .order-product-detail,
+  /* .order-product-detail, */
   .order-product-price {
     font-size: 0.9rem !important;
     padding-bottom: 0.1rem !important;
