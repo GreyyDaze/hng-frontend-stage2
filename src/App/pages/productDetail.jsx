@@ -71,7 +71,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="product-detail-page">
+    <div>
       <SalesCountdown />
       <CompanyLogo />
       <Navbar />

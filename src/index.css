@@ -725,9 +725,10 @@ h1.title-total {
   margin-bottom: 2rem;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   background-color: #f5f5f5;
+  padding: 2rem 1.7rem !important;
 }
 
-.product-carousel {
+.product-carousel { 
   border-radius: 0.5rem;
   overflow: hidden;
 }
@@ -797,15 +798,18 @@ h1.title-total {
   background-color: #8dbf8d !important;
 }
 
+.product-image {
+  width: 100%;
+  height: 25rem;
+  object-fit: cover;
+}
+
 /* Responsive design */
 @media (max-width: 1366px) {
   .container {
     max-width: 1200px;
   }
 
-  .product-card {
-    padding: 2.5rem;
-  }
 
   .leather-collection-container {
     margin-left: 6.3rem !important;
@@ -1012,8 +1016,17 @@ h1.title-total {
 }
 
 @media (max-width: 1024px) {
+  .product-image {
+    width: 100%;
+    height: 25rem;
+    object-fit: cover;
+  }
+
+  .container {
+    max-width: 960px;
+  }
   .product-card {
-    padding: 2rem;
+    padding: 1rem 1.5rem !important;
   }
 
   .product-title {
@@ -1340,6 +1353,14 @@ h1.title-total {
 }
 
 @media (max-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+
+  .product-card {
+    padding: 0.6rem 0.8rem !important;
+  }
+
   .product-title {
     margin-bottom: 1rem;
     font-size: 1.45rem !important;
@@ -1347,7 +1368,7 @@ h1.title-total {
 
   .product-image {
     width: 100%;
-    height: 30rem;
+    height: 27rem;
     object-fit: cover;
   }
 
@@ -1664,15 +1685,26 @@ h1.title-total {
   .check-col-2 {
     max-width: 90% !important;
   }
-
 }
 
 @media (max-width: 430px) {
+  .product-card {
+    padding: 0.3rem 0rem !important;
+  }
+
+  .product-card .ant-card-body {
+    padding: 1.64rem !important;
+  }
+
+  .container {
+    max-width: 390px;
+  }
+
   .checkout-container {
     max-width: 100% !important;
   }
   .complete-purchase {
-    margin-left: .7rem !important;
+    margin-left: 0.7rem !important;
     max-width: 100% !important;
   }
   .check-col-1 {
@@ -1948,6 +1980,15 @@ h1.title-total {
 }
 
 @media (max-width: 390px) {
+  .product-card .ant-card-body {
+    padding: 1.34rem !important;
+  }
+
+  .container {
+    margin-top: 2rem !important;
+    max-width: 350px;
+  }
+
   .section-number {
     width: 1.35rem;
     height: 1.35rem;
@@ -2246,7 +2287,17 @@ h1.title-total {
 }
 
 @media (max-width: 360px) {
-  
+  .product-card {
+    padding: 0.3rem 0rem !important;
+  }
+
+  .product-card .ant-card-body {
+    padding: 1.1rem !important;
+  }
+
+  .container {
+    max-width: 310px;
+  }
   .item-image {
     margin-right: 0.5rem !important;
   }
