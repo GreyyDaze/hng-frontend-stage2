@@ -387,16 +387,18 @@ const Checkout = () => {
               <div className="price-details">
                 <div className="price-row">
                   <Title>Total Purchase</Title>
-                  <Title>$ {totalPrice.toFixed(2)}</Title>
+                  <Title>₦ {priceFormatter.format(totalPrice)}</Title>
                 </div>
                 <div className="price-row">
                   <Title>Estimated Tax</Title>
-                  <Title>$ 0</Title>
+                  <Title>₦ 0</Title>
                 </div>
                 <Divider />
                 <div className="total">
                   <Title className="title-total">Total</Title>
-                  <Title className="">$ {totalPrice.toFixed(2)}</Title>
+                  <Title className="">
+                    ₦ {priceFormatter.format(totalPrice)}
+                  </Title>
                 </div>
               </div>
             </Card>

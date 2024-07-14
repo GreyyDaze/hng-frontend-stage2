@@ -37,6 +37,13 @@ const ProductDetail = () => {
     });
   };
 
+  const priceFormatter = new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
@@ -60,7 +67,7 @@ const ProductDetail = () => {
       <div className="loading-spinner">
         <Spin size="large" />
       </div>
-    ); 
+    );
   }
 
   return (
@@ -95,7 +102,7 @@ const ProductDetail = () => {
               </Title>
               <div className="price-section">
                 <Text className="current-price">
-                  ₦ {product && product.current_price}
+                  {product && priceFormatter.format(product.current_price)}
                 </Text>
               </div>
               <Paragraph className="product-description">
