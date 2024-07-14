@@ -18,6 +18,11 @@ import Delete from "@images/icons/delete.png";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/CartContext.jsx";
 import axios from "axios";
+import {
+  InfoCircleOutlined,
+  ExclamationCircleOutlined,
+} from "@ant-design/icons";
+
 const { Text, Title } = Typography;
 
 const Cart = () => {
@@ -40,7 +45,11 @@ const Cart = () => {
   const fetchRelatedProducts = async () => {
     try {
       const response = await axios.get(
-        `/api/products?organization_id=${import.meta.env.VITE_ORGANIZATION_ID}&reverse_sort=false&page=1&size=4&Appid=${import.meta.env.VITE_APP_ID}&Apikey=${import.meta.env.VITE_API}`
+        `/api/products?organization_id=${
+          import.meta.env.VITE_ORGANIZATION_ID
+        }&reverse_sort=false&page=1&size=4&Appid=${
+          import.meta.env.VITE_APP_ID
+        }&Apikey=${import.meta.env.VITE_API}`
       );
       setRelatedProducts(response.data.items);
       console.log("Related Products", response.data);
@@ -64,6 +73,8 @@ const Cart = () => {
           message: "Cannot Decrease Quantity",
           description: `The quantity of ${product.name} is already at its minimum.`,
           type: "warning",
+          icon: <ExclamationCircleOutlined className="warning" />,
+          duration: 0,
         });
       } else {
         decrementItem(productId);
@@ -72,7 +83,17 @@ const Cart = () => {
   };
 
   const handleRemove = (productId) => {
-    removeFromCart(productId);
+    const product = cartItems.find((item) => item.id === productId);
+
+    if (product) {
+      removeFromCart(productId);
+      notification.open({
+        message: "Item Removed",
+        description: `${product.name} has been removed from your cart.`,
+        type: "success",
+        icon: <DeleteOutlined className="success" />,
+      });
+    }
   };
 
   const handleCheckout = () => {
@@ -81,6 +102,7 @@ const Cart = () => {
         message: "Cannot proceed to checkout",
         description: "Add items to your cart to proceed to checkout.",
         type: "warning",
+        icon: <ExclamationCircleOutlined className="warning" />,
       });
       console.log("Cannot proceed to checkout");
     } else {
@@ -94,6 +116,7 @@ const Cart = () => {
       message: "Cart Cleared",
       description: "All items have been removed from your cart.",
       type: "info",
+      icon: <InfoCircleOutlined className="info" />,
     });
   };
 

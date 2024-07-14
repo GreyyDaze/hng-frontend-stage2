@@ -15,9 +15,10 @@ import {
   notification,
   Spin,
 } from "antd";
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import { ShoppingCartOutlined, CheckCircleOutlined } from "@ant-design/icons";
 import axios from "axios";
 import { useCart } from "../../context/CartContext";
+
 
 const { Title, Text, Paragraph } = Typography;
 
@@ -27,12 +28,14 @@ const ProductDetail = () => {
 
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [api, contextHolder] = notification.useNotification();
 
   const handleAddToCart = (product) => {
     addToCart(product);
-    notification.open({
+    api.open({
       message: "Item Added to Cart",
       description: `${product.name} has been added to your cart.`,
+      icon: <CheckCircleOutlined className="success" />,
       type: "success",
     });
   };
@@ -48,7 +51,11 @@ const ProductDetail = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `https://timbu-get-single-product.reavdev.workers.dev/${id}?organization_id=${import.meta.env.VITE_ORGANIZATION_ID}&Appid=${import.meta.env.VITE_APP_ID}&Apikey=${import.meta.env.VITE_API}`
+          `https://timbu-get-single-product.reavdev.workers.dev/${id}?organization_id=${
+            import.meta.env.VITE_ORGANIZATION_ID
+          }&Appid=${import.meta.env.VITE_APP_ID}&Apikey=${
+            import.meta.env.VITE_API
+          }`
         );
         setProduct(response.data);
         console.log("Product fetched:", response.data);
@@ -72,6 +79,8 @@ const ProductDetail = () => {
 
   return (
     <div>
+      {contextHolder}
+
       <SalesCountdown />
       <CompanyLogo />
       <Navbar />

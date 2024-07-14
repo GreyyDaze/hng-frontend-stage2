@@ -1,10 +1,6 @@
 import React from "react";
 import { Layout, Row, Col, Typography, Input, Button, Checkbox } from "antd";
-import {
-  FacebookOutlined,
-  TwitterOutlined,
-  InstagramOutlined,
-} from "@ant-design/icons";
+
 
 const { Footer } = Layout;
 const { Title, Text, Link } = Typography;

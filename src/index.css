@@ -32,6 +32,18 @@ label {
   font-family: "Roboto", sans-serif !important;
 }
 
+.success {
+  color: #52c41a !important;
+}
+
+.warning {
+  color: #faad14 !important;
+}
+
+.info {
+  color: #1890ff !important;
+}
+
 .sales-countdown-container {
   background-color: #fff885;
   padding: 0.7rem !important;
@@ -728,7 +740,7 @@ h1.title-total {
   padding: 2rem 1.7rem !important;
 }
 
-.product-carousel { 
+.product-carousel {
   border-radius: 0.5rem;
   overflow: hidden;
 }
@@ -809,7 +821,6 @@ h1.title-total {
   .container {
     max-width: 1200px;
   }
-
 
   .leather-collection-container {
     margin-left: 6.3rem !important;

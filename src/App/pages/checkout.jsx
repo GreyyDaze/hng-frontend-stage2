@@ -21,6 +21,8 @@ import {
 } from "antd";
 import { QuestionCircleOutlined } from "@ant-design/icons";
 import { useCart } from "../../context/CartContext";
+import { CheckCircleOutlined } from '@ant-design/icons';
+
 
 const { Option } = Select;
 const { Title } = Typography;
@@ -136,6 +138,7 @@ const Checkout = () => {
           formValues.country
         }. Total price: $${totalPrice.toFixed(2)}`,
         duration: 5,
+        icon: <CheckCircleOutlined className="success" />,
       });
       navigate("/");
       clearCart();
